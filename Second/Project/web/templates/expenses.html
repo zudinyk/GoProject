@@ -1,0 +1,28 @@
+{{define "content"}}
+    <h1>Мои траты</h1>
+
+    {{if .}}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Дата</th>
+                    <th>Описание</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .}}
+                <tr>
+                    <td>{{.ID}}</td>
+                    <td>{{.Date}}</td>
+                    <td>{{.Description}}</td>
+                    <td>{{.Amount}} ₽</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Пока нет ни одной траты. <a href="/expenses/add">Добавить?</a></p>
+    {{end}}
+{{end}}
